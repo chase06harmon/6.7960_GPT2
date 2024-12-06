@@ -18,6 +18,7 @@ source /home/paulg9/miniforge3/bin/activate
 
 srun /home/paulg9/miniforge3/bin/python run_clm.py \
     --model_type gpt2 \
+    --tokenizer_name gpt2 \
     --dataset_name chaseharmon/6.7960_FINAL \
     --per_device_train_batch_size 2 \
     --per_device_eval_batch_size 2 \
