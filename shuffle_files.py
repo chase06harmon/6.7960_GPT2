@@ -1,19 +1,28 @@
 import random
 
-inputs = ['shakespeare', "slang", "combined_data"]
+import argparse
 
-for title in inputs:
-    # Read the file into a list
-    with open(f'{title}.txt', 'r') as file:
-        lines = file.readlines()
-        print(len(lines))
+# Set up argument parsing
+parser = argparse.ArgumentParser(description="Shuffle the lines of a file.")
+parser.add_argument('--files', metavar='file', type=str, nargs='+', help="File(s) to shuffle", required=True)
+args = parser.parse_args()
 
-    # Shuffle the lines
-    random.shuffle(lines)
+for title in args.files:
+    try:
+        # Read the file into a list
+        with open(f'{title}', 'r') as file:
+            lines = file.readlines()
+            print(f'{title} has {len(lines)} lines.')
 
-    # Write the shuffled lines back to a file
-    with open(f'{title}.txt', 'w') as file:
-        file.writelines(lines)
-        print(len(lines))
+        # Shuffle the lines
+        random.shuffle(lines)
 
-    print("The lines have been randomly ordered.")
+        # Write the shuffled lines back to a file
+        with open(f'{title}', 'w') as file:
+            file.writelines(lines)
+            print(f'Shuffled {len(lines)} lines in {title}.txt.')
+
+        print("The lines have been randomly ordered.")
+
+    except FileNotFoundError:
+        print(f"Error: {title}.txt not found.")
