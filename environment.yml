@@ -1,0 +1,12 @@
+name: gpt2_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - huggingface_accelerate
+  - pytorch
+  - datasets
+  - sentencepiece                 
+  - protobuf                      
+  - evaluate
