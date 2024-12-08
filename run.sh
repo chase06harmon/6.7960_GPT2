@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -J gpt2_training
 #SBATCH -o ./training_outputs/shake_train%j.out
-#SBATCH -e ./training_outputs/shake_train%j.err
+#SBATCH -e ./training_errors/shake_train%j.err
 #SBATCH --gres=gpu:4
 #SBATCH --gpus-per-node=4
 #SBATCH --nodes=1
@@ -15,7 +15,7 @@ module load cuda/11.8
 #activate environment
 source ~/miniforge3/envs/gpt2_env/bin/activate
 
-srun ~/miniforge3/bin/python run_clm.py \
+srun python run_clm.py \
     --model_type gpt2 \
     --tokenizer_name gpt2 \
     --dataset_name ./shake_gpt2_train.txt \
