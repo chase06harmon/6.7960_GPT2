@@ -10,7 +10,6 @@
 #SBATCH --time=9:33:33
 #SBATCH --exclusive
 
-module load anaconda3/2020.02-2ks5tch
 module load cuda/11.8
 
 #activate environment
@@ -20,7 +19,7 @@ source activate
 srun python run_clm.py \
     --model_type gpt2 \
     --tokenizer_name gpt2 \
-    --dataset_name ./shake_gpt2_train.txt \
+    --train_file ./shake_gpt2_train.txt \
     --per_device_train_batch_size 32 \
     --per_device_eval_batch_size 32 \
     --do_train \
