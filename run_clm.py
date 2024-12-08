@@ -647,7 +647,7 @@ def main():
     else:
         trainer.create_model_card(**kwargs)
 
-trainer.save_model('model_file')
+    trainer.save_model('model_file')
 
 def _mp_fn(index):
     # For xla_spawn (TPUs)
