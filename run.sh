@@ -10,10 +10,12 @@
 #SBATCH --time=9:33:33
 #SBATCH --exclusive
 
+module load anaconda3/2020.02-2ks5tch
 module load cuda/11.8
 
 #activate environment
-source ~/miniforge3/envs/gpt2_env/bin/activate
+source ~/miniforge3/envs/gpt2_env2.0/bin/activate
+source activate
 
 srun python run_clm.py \
     --model_type gpt2 \
@@ -27,3 +29,4 @@ srun python run_clm.py \
     --overwrite_output_dir True \
     --num_train_epochs 100 \
     --fp16 
+    
