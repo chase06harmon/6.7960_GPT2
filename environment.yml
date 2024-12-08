@@ -1,13 +1,13 @@
-name: gpt2_env
+name: gpt2_env2.0
 channels:
   - conda-forge
   - defaults
 dependencies:
   - python=3.9
-  - huggingface_accelerate
-  - pytorch
-  - datasets
-  - sentencepiece                 
+  - accelerate>=0.12.0
+  - pytorch>=1.3
+  - datasets>= 2.14.0
+  - sentencepiece!=0.1.92                 
   - protobuf                      
   - evaluate
   - transformers
