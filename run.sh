@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -J gpt2_training
-#SBATCH -o myjob_4GPUs_%j.out
-#SBATCH -e myjob_4GPUs_%j.err
+#SBATCH -o ./training_outputs/shake_train%j.out
+#SBATCH -e ./training_outputs/shake_train%j.err
 #SBATCH --gres=gpu:4
 #SBATCH --gpus-per-node=4
 #SBATCH --nodes=1
