@@ -10,3 +10,4 @@ dependencies:
   - sentencepiece                 
   - protobuf                      
   - evaluate
+  - transformers
