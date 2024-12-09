@@ -1,5 +1,5 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, GenerationConfig
-import datasets
+from datasets import load_dataset
 
 from huggingface_hub import login
 
@@ -7,6 +7,14 @@ hf_token = "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"
 
 # Log in using the token
 login(token=hf_token)
+username = "chaseharmon"
+repo_name = "shakespeare_gpt2.0"
+
+# Path to the directory where the model is saved
+model_dir = "../tmp/test-clm/"
+
+# Load the model
+model = AutoModelForCausalLM.from_pretrained(model_dir)
 
 # Load the tokenizer
 tokenizer = AutoTokenizer.from_pretrained("gpt2")
