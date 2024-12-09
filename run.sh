@@ -10,11 +10,17 @@
 #SBATCH --time=9:33:33
 #SBATCH --exclusive
 
+module purge all
+module add spack
 module add cuda/10.2
+module openmpi/3.1.6-cuda-pmi-ucx-slurm-jhklron
 
 #activate environment
-source ~/miniforge3/envs/gpt2_env2.0/bin
+mamba activate gpt2_env2.0
 
+ngpu=`nvidia-smi -L | grep UUID | wc -l`
+mygpu=$((${SLURM_LOCALID} % ${ngpu} ))
+export CUDA_VISIBLE_DEVICES=${mygpu}
 
 
 echo $CUDA_VISIBLE_DEVICES
@@ -22,7 +28,7 @@ echo $(nvidia-smi)
 
 python --version
 
-srun ~/miniforge3/bin/python run_clm.py \
+srun python run_clm.py \
     --model_type gpt2 \
     --tokenizer_name gpt2 \
     --train_file ./shake_gpt2_train.txt \
