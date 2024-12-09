@@ -10,20 +10,11 @@
 #SBATCH --time=9:33:33
 #SBATCH --exclusive
 
-module purge all
-module add spack/0.1
-module add cuda/10.2
-module openmpi/3.1.6-cuda-pmi-ucx-slurm-jhklron
+module load cuda/11.8
 
 #activate environment
 source ~/miniforge3/envs/gpt2_env2.0/bin
 source activate
-
-ngpu=`nvidia-smi -L | grep UUID | wc -l`
-mygpu=$((${SLURM_LOCALID} % ${ngpu} ))
-export CUDA_VISIBLE_DEVICES=${mygpu}
-
-
 
 echo $CUDA_VISIBLE_DEVICES
 echo $(nvidia-smi)
