@@ -2,6 +2,7 @@ name: final_env
 channels:
   - conda-forge
   - nvidia
+  - pytorch
   - defaults
 dependencies:
   - python=3.9
