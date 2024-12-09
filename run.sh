@@ -18,6 +18,10 @@ source activate
 
 unset CUDA_VISIBLE_DEVICES
 
+
+echo $CUDA_VISIBLE_DEVICES
+echo $(nvidia-smi)
+
 srun python run_clm.py \
     --model_type gpt2 \
     --tokenizer_name gpt2 \
