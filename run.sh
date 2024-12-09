@@ -10,19 +10,18 @@
 #SBATCH --time=9:33:33
 #SBATCH --exclusive
 
+module load anaconda3/2020.02-2ks5tch
 module load cuda/10.2
 
 #activate environment
 source ~/miniforge3/envs/gpt2_env2.0/bin
-source activate
 
-unset CUDA_VISIBLE_DEVICES
 
 
 echo $CUDA_VISIBLE_DEVICES
 echo $(nvidia-smi)
 
-srun python run_clm.py \
+srun ~/miniforge3/bin/python run_clm.py \
     --model_type gpt2 \
     --tokenizer_name gpt2 \
     --train_file ./shake_gpt2_train.txt \
