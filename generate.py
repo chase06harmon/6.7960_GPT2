@@ -10,7 +10,7 @@ def main():
     # print('0')
     # Verify loading
     # print(model.config)
-    prompt = "Write a sentence"
+    prompt = ""
     input_ids = tokenizer(prompt, return_tensors="pt").input_ids
 
     generation_config = GenerationConfig.from_pretrained("/nobackup/users/paulg9/Deep_learning_project/saved_model.ckpt/")
