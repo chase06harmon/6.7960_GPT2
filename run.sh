@@ -10,7 +10,7 @@
 #SBATCH --time=9:33:33
 #SBATCH --exclusive
 
-module load cuda/11.8
+module load cuda/10.2
 
 #activate environment
 source ~/miniforge3/envs/gpt2_env2.0/bin
