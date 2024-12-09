@@ -16,9 +16,7 @@ module load cuda/10.2
 source ~/miniforge3/envs/gpt2_env2.0/bin
 source activate
 
-
-echo $CUDA_VISIBLE_DEVICES
-echo $(nvidia-smi)
+unset CUDA_VISIBLE_DEVICES
 
 srun python run_clm.py \
     --model_type gpt2 \
