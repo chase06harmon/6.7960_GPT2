@@ -13,7 +13,7 @@
 module load cuda/11.8
 
 #activate environment
-source ~/miniforge3/envs/gpt2_env2.0/bin/activate
+source ~/miniforge3/envs/gpt2_env2.0/bin
 source activate
 
 srun python run_clm.py \
