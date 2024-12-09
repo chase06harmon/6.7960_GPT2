@@ -16,6 +16,10 @@ module load cuda/11.8
 source ~/miniforge3/envs/gpt2_env2.0/bin
 source activate
 
+
+echo $CUDA_VISIBLE_DEVICES
+echo $(nvidia-smi)
+
 srun python run_clm.py \
     --model_type gpt2 \
     --tokenizer_name gpt2 \
